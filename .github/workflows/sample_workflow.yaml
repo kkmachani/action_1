@@ -1,4 +1,4 @@
-name: Shellscript workflow
+name: Shell script workflow
 
 on: push
 

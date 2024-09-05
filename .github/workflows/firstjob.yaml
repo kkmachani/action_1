@@ -12,7 +12,8 @@ jobs:
         - name: list all the files
           run: ls
 
-        - name: Excuting shellscript
-          run: 
-            chmod 777 script.sh
-            ./script.sh
+        - name: Permission to shellscript
+          run: chmod 777 script.sh
+
+        - name: Executing shellscript
+          run: ./script.sh

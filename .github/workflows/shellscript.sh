@@ -16,7 +16,3 @@ grep 'workflow' ./*
 sed -i 's/workflow/workflowjob/g' *
 
 cat a.txt b.txt c.txt
-
-
-
-

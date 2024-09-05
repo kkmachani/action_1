@@ -1,9 +1,9 @@
-name: My Job workflow
+name: Shellscript workflow
 
 on: push
 
 jobs:
-    first_job:
+    shellscript_job:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout repo

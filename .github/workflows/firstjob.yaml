@@ -9,11 +9,8 @@ jobs:
         - name: Checkout repo
           uses: actions/checkout@v4
 
-        - name: Welcome message
-          run: echo "my first workflow job"
-
         - name: list all the files
           run: ls
 
-        - name: read file
-          run: cat README.md
+        - name: Excuting shellscript
+          run: ./shellscript.sh

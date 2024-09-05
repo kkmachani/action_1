@@ -13,4 +13,4 @@ jobs:
           run: ls
 
         - name: Excuting shellscript
-          run: ./shellscript.sh
+          run: ./script.sh

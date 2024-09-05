@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo apt update
+sudo apt-get update
 
 echo "This is My first shellsript in sample workflow" > a.txt
 echo "This is My first shellsript in sample workflow" > b.txt

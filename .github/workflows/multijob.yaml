@@ -1,0 +1,58 @@
+name: Multi job workflow
+
+on: push
+
+jobs: 
+   build_job_1:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+        
+        - name:  list all the files
+          run: ls
+        
+        - name: Permission to shellscript
+          run: chmod 777 newscript.sh
+
+        - name: Executing shellscript
+          run: ./newscript.sh
+        
+        - name: upload the artifact-file
+          uses: actions/upload-artifact@v4
+          with:
+            name: artifact text file
+            path: artifact.txt
+    
+   test_job_2:
+      needs: build_job_1
+      runs-on: ubuntu-latest
+      steps:
+      - name: download the artifact-file
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact text file
+      
+      - name: check the artifact file
+        run: ls
+
+   deploy_job_3:
+        needs: test_job_2
+        runs-on: ubuntu-latest
+        steps:
+         - name: download the artifact-file
+           uses: actions/download-artifact@v4
+           with:
+             name: artifact text file
+      
+         - name: Read the file
+           run: artifact.txt
+    
+      
+      
+             
+
+        
+        
+        
+      

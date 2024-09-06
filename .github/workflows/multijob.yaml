@@ -46,7 +46,7 @@ jobs:
              name: artifact text file
       
          - name: Read the file
-           run: artifact.txt
+           run:  cat artifact.txt
     
       
       

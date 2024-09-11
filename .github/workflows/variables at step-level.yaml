@@ -13,7 +13,7 @@ jobs:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: nginx
-       run: docker buildx build  $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME
+       run: docker build -f $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME ./Dockerfile -t myapp:latest 
 
      - name: Login Docker
        env:

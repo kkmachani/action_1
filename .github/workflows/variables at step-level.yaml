@@ -15,6 +15,15 @@ jobs:
      - name: pulling an image
        run: docker pull nginx:latest
 
+
+     - name: Building an image
+       env:
+         CONTAINER_REGISTRY: docker.io
+         DOCKER_USERNAME: machanikrishnakumar
+         IMAGE_NAME: nginx:latest
+       run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME .
+
+
      - name: Login Docker
        env:
          DOCKER_USERNAME: machanikrishnakumar

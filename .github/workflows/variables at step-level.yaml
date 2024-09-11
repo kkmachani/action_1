@@ -4,6 +4,7 @@ on: push
 
 #using variables at step-level 
 jobs:
+       
    docker:
      runs-on: ubuntu-latest
      steps:
@@ -11,7 +12,7 @@ jobs:
        env:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
-         IMAGE_NAME: my-nginx
+         IMAGE_NAME: nginx
        run: docker buildx build  $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME
 
      - name: Login Docker
@@ -23,7 +24,7 @@ jobs:
        env:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
-         IMAGE_NAME: my-nginx
+         IMAGE_NAME: nginx
        run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
    deploy:
@@ -33,7 +34,7 @@ jobs:
         env:
           CONTAINER_REGISTRY: docker.io
           DOCKER_USERNAME: machanikrishnakumar
-          IMAGE_NAME: my-nginx
+          IMAGE_NAME: nginx
         run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
 

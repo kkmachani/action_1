@@ -12,19 +12,14 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v4
 
+     - name: pulling an image
+       run: docker pull nginx:latest
+
      - name: Login Docker
        env:
          DOCKER_USERNAME: machanikrishnakumar
        run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }} 
 
-     - name: Building an image
-       env:
-         CONTAINER_REGISTRY: docker.io
-         DOCKER_USERNAME: machanikrishnakumar
-         IMAGE_NAME: my-nginx
-       run: docker build -f ./Dockerfile -t $IMAGE_NAME .
-
-    
 
      - name: Pushing an image
        env:
@@ -32,6 +27,9 @@ jobs:
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: my-nginx
        run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+
+     - name: sleep for few seconds
+       run: sleep 10
 
    deploy:
       runs-on: ubuntu-latest

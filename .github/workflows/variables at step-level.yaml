@@ -12,9 +12,6 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v4
 
-     - name: pulling an image
-       run: docker pull nginx:latest
-
 
      - name: Building an image
        env:

@@ -36,6 +36,10 @@ jobs:
    deploy:
       runs-on: ubuntu-latest
       steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v4  
+      
       - name: Run an image
         env:
           CONTAINER_REGISTRY: docker.io

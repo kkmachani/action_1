@@ -8,17 +8,19 @@ jobs:
    docker:
      runs-on: ubuntu-latest
      steps:
-     - name: pulling an image
-       env:
-         CONTAINER_REGISTRY: docker.io
-         DOCKER_USERNAME: machanikrishnakumar
-         IMAGE_NAME: nginx
-       run: docker pull $IMAGE_NAME:latest
 
      - name: Login Docker
        env:
          DOCKER_USERNAME: machanikrishnakumar
-       run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
+       run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }} 
+
+     - name: Building an image
+       env:
+         CONTAINER_REGISTRY: docker.io
+         DOCKER_USERNAME: machanikrishnakumar
+         IMAGE_NAME: nginx
+       run: docker build -t $IMAGE_NAME:latest -f ./Dockerfile 
+    
 
      - name: Pushing an image
        env:

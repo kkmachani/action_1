@@ -2,7 +2,7 @@ name: Workflow with varibles
 
 on: push
 
-#using variables at step-level
+#using variables at step-level 
 jobs:
    docker:
      runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: my-nginx
-       run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME
+       run: docker buildx build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME
 
      - name: Login Docker
        env:

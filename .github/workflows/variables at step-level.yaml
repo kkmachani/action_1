@@ -22,7 +22,7 @@ jobs:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: nginx
-       run: docker build -t $IMAGE_NAME:latest -f ./Dockerfile 
+       run: docker buildx build $IMAGE_NAME:latest -f ./Dockerfile 
     
 
      - name: Pushing an image

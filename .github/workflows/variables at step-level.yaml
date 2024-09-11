@@ -13,7 +13,7 @@ jobs:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: nginx
-       run: docker pull $USERNAME/$IMAGE_NAME:latest
+       run: docker pull $IMAGE_NAME:latest
 
      - name: Login Docker
        env:

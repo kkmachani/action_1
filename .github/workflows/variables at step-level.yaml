@@ -9,6 +9,9 @@ jobs:
      runs-on: ubuntu-latest
      steps:
 
+     - name: Checkout code
+       uses: actions/checkout@v4
+
      - name: Login Docker
        env:
          DOCKER_USERNAME: machanikrishnakumar
@@ -19,7 +22,7 @@ jobs:
          CONTAINER_REGISTRY: docker.io
          DOCKER_USERNAME: machanikrishnakumar
          IMAGE_NAME: nginx
-       run: docker buildx build $IMAGE_NAME:latest -f ./Dockerfile 
+       run: docker build -t $IMAGE_NAME:latest -f ./Dockerfile 
     
 
      - name: Pushing an image

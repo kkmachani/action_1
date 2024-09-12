@@ -2,7 +2,7 @@ name: Workflow with varibles
 
 on: push
 
-#using variables at step-level 
+#using variables-secrets at step-level 
 jobs:
 
    deploy:

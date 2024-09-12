@@ -2,7 +2,7 @@ name: My Job workflow
 
 on: 
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '1 * * * *'
 
 jobs:
     first_job:

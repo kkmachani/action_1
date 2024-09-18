@@ -1,9 +1,9 @@
 name: My Job workflow
 
 on: 
-  workflow_dispatch:
-#   schedule:
-#     - cron: '*/1 * * * *'
+#  workflow_dispatch:
+   schedule:
+     - cron: '*/1 * * * *'
 
 jobs:
     first_job:
@@ -11,7 +11,7 @@ jobs:
         steps:
         - name: Checkout repo
           uses: actions/checkout@v4
-
+          
         - name: list all the files
           run: ls
 

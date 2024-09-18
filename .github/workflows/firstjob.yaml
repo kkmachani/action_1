@@ -27,4 +27,4 @@ jobs:
       steps:
          - name: Executing shellscript 
            run: ./script.sh
-           sleep 120
+                sleep 120

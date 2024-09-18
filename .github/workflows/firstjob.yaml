@@ -1,9 +1,10 @@
 name: My Job workflow
 
 on: 
-#  workflow_dispatch:
-  schedule:
-    - cron: '*/2 * * * *'
+ workflow_dispatch:
+
+concurrency:
+
 
 jobs:
     first_job:
@@ -17,6 +18,13 @@ jobs:
 
         - name: Permission to shellscript
           run: chmod 777 script.sh
-
-        - name: Executing shellscript
-          run: ./script.sh
+          
+    second_job:
+      concurrency:
+        group: second_job
+        cancel-in-progress: true
+      runs-on: ubuntu-latest
+      steps:
+         - name: Executing shellscript 
+           run: ./script.sh
+           sleep 120

@@ -10,7 +10,7 @@ jobs:
     deploy:
       strategy:
         matrix:
-          os: [ubuntu-latest, ubuntu 20.4, windows-latest]
+          os: [ubuntu-latest, ubuntu 20.4]
           image: [machanikrishnakumar/tomcat]
       runs-on: ${{matrix.os}}
       steps:

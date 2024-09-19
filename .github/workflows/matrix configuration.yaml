@@ -10,7 +10,7 @@ jobs:
     deploy:
       strategy:
         matrix:
-          os: [ubuntu-latest, ubuntu 20.4]
+          os: [ubuntu-latest, ubuntu 20.04]
       runs-on: ${{matrix.os}}
       steps:
       - name: Checkout repo

@@ -38,7 +38,7 @@ jobs:
     deploy:
       needs: docker
       concurrency: 
-        group: prod_deploy
+        group: build-${{ github.ref }}
         cancel-in-progress: true
       runs-on: ubuntu-latest
       steps:

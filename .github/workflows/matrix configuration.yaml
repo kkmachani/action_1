@@ -11,7 +11,7 @@ jobs:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu 20.4]
-          image: [machanikrishnakumar/nginx-latest]
+          image: [machanikrishnakumar/nginx]
       runs-on: ${{matrix.os}}
       steps:
           

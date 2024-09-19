@@ -4,9 +4,6 @@ on:
  
  workflow_dispatch:
 
-
-#using variables-secrets at step-level 
-
 jobs:
 
     docker:

@@ -1,0 +1,46 @@
+name: Timeout at Job & step level
+
+on:   
+ 
+ workflow_dispatch:
+
+jobs:
+
+    docker:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4 
+            
+            - name: Login into the DockerHub
+              env:
+                CONTAINER_REGISTRY: docker.io
+                DOCKER_USERNAME: machanikrishnakumar
+                IMAGE_NAME: nginx
+              run: echo docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
+
+            - name: pull the image
+              run: echo docker pull --image=$IMAGE_NAME:latest
+
+            - name: Tag the image
+              run: echo docker tag $IMAGENAME:latest $DOCKER_USERNAME/$IMAGENAME:latest
+
+            - name: Push the image
+              run: |
+                 echo docker login --username=$DOCKER_USERNAME --password=${{secrets.DOCKER_PASSWORD}}
+                 echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    
+    deploy:
+      timeout-minutes: 1
+      needs: docker
+      concurrency: 
+        group: build-${{ github.ref }}
+        cancel-in-progress: false
+      runs-on: ubuntu-latest
+      steps:
+          - name: docker run
+            run: |
+               echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+               sleep 300
+    
+    

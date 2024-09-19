@@ -4,8 +4,6 @@ on:
  
  workflow_dispatch:
 
-concurrency:
-
 
 #using variables-secrets at step-level 
 

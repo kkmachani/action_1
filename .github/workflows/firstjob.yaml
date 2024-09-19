@@ -1,7 +1,8 @@
 name: My Job workflow
 
 on: 
- workflow_dispatch:
+  
+  workflow_dispatch:
 
 concurrency:
 
@@ -20,11 +21,7 @@ jobs:
           run: chmod 777 script.sh
           
     second_job:
-      concurrency:
-        group: second_job
-        cancel-in-progress: true
       runs-on: ubuntu-latest
       steps:
          - name: Executing shellscript 
            run: ./script.sh
-                sleep 120

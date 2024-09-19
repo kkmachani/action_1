@@ -11,27 +11,20 @@ jobs:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu 20.4]
-          image: [machanikrishnakumar/nginx]
       runs-on: ${{matrix.os}}
       steps:
-          
-          - name: docker login
-            env:
-              CONTAINER_REGISTRY: docker.io
-              USER_NAME: machanikrishnakumar
-            run: echo docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
-          
-          - name: pulling the image
-            run: echo docker pull ${{matrix.image}}
-          
-          - name: Show the images
-            run: echo docker images
-
-          - name: Echo Docker details
-            run: docker info
-        
-          - name: Run the Image
-            run: docker run ${{matrix.image}}
+      - name: Checkout repo
+        uses: actions/checkout@v4
+              
+      - name: list all the files
+        run: ls
+    
+      - name: Permission to shellscript
+        run: chmod 777 script.sh
+              
+      - name: Executing shellscript 
+        run: ./script.sh
+           
 
     
 

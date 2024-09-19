@@ -1,0 +1,24 @@
+name: Matrix Configuration
+
+
+on: 
+ 
+ push:
+ workflow_dispatch:
+
+jobs:
+    deploy:
+      strategy:
+        matrix:
+          os: [ubuntu:latest, ubuntu 20.4, windows:latest]
+          images: [machanikrishnakumar/tomcat]
+      runs-on: ${{matrix.os}}
+      steps:
+          - name: Echo Docker details
+            run: docker info
+        
+          - name: Run the Image
+            run: docker run ${{matrix.images}}
+
+    
+

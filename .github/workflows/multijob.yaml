@@ -25,7 +25,7 @@ jobs:
             path: artifact.txt
     
    test_job_2:
-      needs: build_job_1
+      needs: build_job_1 #needs is used to follow the dependencies of the job1
       runs-on: ubuntu-latest
       steps:
       - name: download the artifact-file

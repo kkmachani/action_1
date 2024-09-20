@@ -1,0 +1,29 @@
+name:  Additional Matrix Configuration
+
+
+on: 
+ 
+ 
+ workflow_dispatch:
+
+jobs:
+    deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+          image: [nginx]
+          exclude:
+            - os: windows-latest
+      runs-on: ${{matrix.os}}
+      steps:
+      - name: Logging into docker
+        env:
+          CONTAINER_REGISTRY: docker.io
+          USER_NAME: machanikrishnakumar
+        run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
+
+      - name: pull the image
+        run: docker pull ${{matrix.image}}
+
+      - name: Run the image
+        run: docker run ${{matrix.image}}

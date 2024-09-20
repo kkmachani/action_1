@@ -11,10 +11,10 @@ jobs:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-          images: [nginx,machanikrishnakumar/tomcat]
+          images: [nginx,tomcat]
           exclude:
             - os: windows-latest
-            - images: machanikrishnakumar/tomcat
+            - images: tomcat
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker
@@ -26,5 +26,5 @@ jobs:
       - name: pull the image
         run: echo docker pull ${{matrix.images}}
 
-      - name: Run the image
+      - name: Run the image on ${{matrix.os}}
         run: echo docker run ${{matrix.images}}

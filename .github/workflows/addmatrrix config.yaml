@@ -14,8 +14,6 @@ jobs:
           image: [nginx]
           include:
             - image: alpine-latest
-          exclude:
-            - os: windows-latest
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

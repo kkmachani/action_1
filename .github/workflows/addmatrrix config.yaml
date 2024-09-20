@@ -15,7 +15,7 @@ jobs:
           exclude:
             - os: windows-latest
           include:
-            - image: alpine-latest
+            - image: tomcat
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

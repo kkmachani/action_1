@@ -12,6 +12,8 @@ jobs:
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
           image: [nginx]
+          include:
+            - image: alpine-latest
           exclude:
             - os: windows-latest
       runs-on: ${{matrix.os}}

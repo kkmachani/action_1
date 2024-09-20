@@ -14,7 +14,6 @@ jobs:
           images: [nginx,tomcat] #
           exclude:
             - os: windows-latest
-            - images: tomcat
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

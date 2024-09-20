@@ -17,7 +17,6 @@ jobs:
               os: windows-latest
           include:
             - images: alpine
-        
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

@@ -20,10 +20,10 @@ jobs:
         env:
           CONTAINER_REGISTRY: docker.io
           DOCKER_USER_NAME: machanikrishnakumar
-        run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
+        run: echo docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: pull the image
-        run: docker pull ${{matrix.image}}
+        run: echo docker pull ${{matrix.image}}
 
       - name: Run the image
-        run: docker run ${{matrix.image}}
+        run: echo docker run ${{matrix.image}}

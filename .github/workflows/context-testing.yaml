@@ -14,3 +14,8 @@ jobs:
         env:
           JOB_CONTEXT: ${{ toJson(job)}}
         run: echo "JOB_CONTEXT"
+      - name: Dump strategy commit
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "STRATEGY_COMMIT"
+        

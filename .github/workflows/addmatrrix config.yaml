@@ -11,7 +11,7 @@ jobs:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-          image: [nginx,machanikrishnakumar/tomcat]
+          images: [nginx,machanikrishnakumar/tomcat]
           exclude:
             - os: windows-latest
             - image: machanikrishnakumar/tomcat
@@ -24,7 +24,7 @@ jobs:
         run: echo docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: pull the image
-        run: echo docker pull ${{matrix.image}}
+        run: echo docker pull ${{matrix.images}}
 
       - name: Run the image
-        run: echo docker run ${{matrix.image}}
+        run: echo docker run ${{matrix.images}}

@@ -11,10 +11,10 @@ jobs:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-          image: [nginx,busybox]
+          image: [nginx,machanikrishnakumar/tomcat]
           exclude:
             - os: windows-latest
-            - image: busybox
+            - image: machanikrishnakumar/tomcat
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

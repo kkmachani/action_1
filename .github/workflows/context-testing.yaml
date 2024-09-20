@@ -26,4 +26,11 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "MATRIX CONTEXT"
+      - name: Dump step context
+        env:  
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "STEPS_CONTEXT"
+
+
+
 

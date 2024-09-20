@@ -4,17 +4,17 @@ name:  Additional Matrix Configuration
 on: 
  
  
- workflow_dispatch:
+ push:
 
 jobs:
     deploy:
       strategy:
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-          image: [nginx,alpine]
+          image: [nginx,busybox]
           exclude:
             - os: windows-latest
-            - image: alpine
+            - image: busybox
       runs-on: ${{matrix.os}}
       steps:
       - name: Logging into docker

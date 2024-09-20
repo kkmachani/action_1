@@ -19,7 +19,7 @@ jobs:
       - name: Logging into docker
         env:
           CONTAINER_REGISTRY: docker.io
-          USER_NAME: machanikrishnakumar
+          DOCKER_USER_NAME: machanikrishnakumar
         run: docker login --username=$DOCKER_USERNAME --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: pull the image

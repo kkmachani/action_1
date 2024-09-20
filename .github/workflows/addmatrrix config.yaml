@@ -4,20 +4,20 @@ name:  Additional Matrix Configuration
 on: 
  
  
- push:
+ push: # to run the job automatically
 
 jobs:
     deploy:
       strategy:
-        fail-fast: true
-        max-parallel: 2
+        fail-fast: true # to stop the running jobs when the job is failure
+        max-parallel: 2 # to control the count of jobs to run parallely.
         matrix:
           os: [ubuntu-latest, ubuntu-20.04, windows-latest]
           images: [nginx,tomcat]
-          exclude:
+          exclude: 
             - images: tomcat
               os: windows-latest
-          include:
+          include: # to add additional configuration to matrix strategy
             - images: alpine
               os: windows-latest
       runs-on: ${{matrix.os}}

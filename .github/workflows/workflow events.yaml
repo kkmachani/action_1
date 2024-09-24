@@ -1,0 +1,30 @@
+name: Workflow events and activity types
+
+on: 
+   
+
+
+  push:
+  
+    branches:
+        - main
+        - '!feature/*' # ignoring the feature branch by indictaing with '!'
+
+  pull_request:
+  
+    types:
+      - opened
+      - closed
+    paths-ignore:
+      - README.md  # Workflow will only run when a pull request that includes change in any file except README.md
+    branches:
+        - main  # configures workflows will only run a pull req. that target specific branches
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo This workflow/job/step is executed for event type - ${{github.event_name}}
+
+    
+
